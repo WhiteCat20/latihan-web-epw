@@ -3,6 +3,7 @@
 use App\Http\Controllers\EssayController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserDataController;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,11 @@ Route::post('/upload', [UploadController::class, 'store']);
 Route::get('/success', function () {
     return view('success');
 });
+
+//latihan bikin web app pengumpulan essay
+Route::get('/essay', [EssayController::class, 'index']);
+Route::post('/essay', [EssayController::class, 'store'])->name('post-essay');
+
+//shortlink bgst
+Route::resource('/shortlink', ShortLinkController::class);
+Route::get('/{shortLink:short}', [ShortLinkController::class, 'show']);

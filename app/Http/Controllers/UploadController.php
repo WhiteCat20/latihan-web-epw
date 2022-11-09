@@ -11,46 +11,6 @@ class UploadController extends Controller
     {
         return view('upload.upload');
     }
-    // public function process_upload(Request $request)
-    // {
-    //     $this->validate($request, [
-    //         'file' => 'required',
-    //         'keterangan' => 'required',
-    //     ]);
-
-    //     //menyimpan data file yang diupload ke variabel $file
-    //     $file = $request->file('file');
-
-    //     //nama file
-    //     // echo 'File name : ' . $file->getClientOriginalName() . '<br>';
-
-    //     //ekstensi file
-    //     // echo 'File Extension : ' . $file->getClientOriginalExtension() . '<br>';
-
-    //     //real path
-    //     // echo 'File real path : ' . $file->getRealPath() . '<br>';
-    //     //ukuran file
-    //     // echo 'File size : ' . $file->getSize() . '<br>';
-    //     // tipe mime
-    //     // echo 'File Mime Type: ' . $file->getMimeType();
-
-    //     //isi dengan nama folder, dan tempat kemana file akan di upload
-
-    //     //upload data file ke database
-
-    //     //nama file
-    //     $nama_file = time() . '-' . $file->getClientOriginalName();
-
-    //     $tujuan_upload = 'data_file';
-    //     $file->move($tujuan_upload, $nama_file);
-
-    //     UploadFile::create([
-    //         'file' => $nama_file,
-    //         'keterangan' => $request->keterangan,
-    //     ]);
-
-    //     return redirect('/upload');
-    // }
     public function store(Request $request)
     {
         $validatedData = $request->validate([
