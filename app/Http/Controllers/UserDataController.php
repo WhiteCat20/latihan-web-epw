@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ShortLink;
+use App\Models\User;
 use App\Models\UserData;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,9 @@ class UserDataController extends Controller
      */
     public function index()
     {
-        return view('userdata.index');
+        return view('userdata.index', [
+            'users' => User::all(),
+        ]);
     }
 
     /**
@@ -55,9 +59,12 @@ class UserDataController extends Controller
      * @param  \App\Models\UserData  $userData
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserData $userData)
+    public function edit(User $user, ShortLink $shortLink)
     {
-        //
+        return view('userdata.update', [
+            'user' => $user,
+            'shortlink' => $shortLink,
+        ]);
     }
 
     /**
